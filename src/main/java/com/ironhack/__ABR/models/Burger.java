@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "burger")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Burger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +20,8 @@ public abstract class Burger {
     public Burger() {
     }
 
-    public Burger(int id, String name, BigDecimal price) {
-        this.id = id;
+    public Burger(String name, BigDecimal price) {
+
         this.name = name;
         this.price = price;
     }
@@ -53,7 +55,6 @@ public abstract class Burger {
         return "Burger{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+                ", price=" + price+ ", " ;
     }
 }
