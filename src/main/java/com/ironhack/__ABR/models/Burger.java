@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // indicando estrategia de herencia para una tabla por clase
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Burger {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "burger_gen")
