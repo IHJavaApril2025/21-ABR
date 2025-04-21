@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "spicy_burger") // indicamos la tabla de la base de datos
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@PrimaryKeyJoinColumn(name = "burger_id")
 public class SpicyBurger extends Burger {
     @Column(name = "spicy_level")
     private String spicyLevel;

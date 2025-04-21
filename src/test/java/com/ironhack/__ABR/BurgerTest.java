@@ -24,7 +24,7 @@ public class BurgerTest {
     public void regularBurger() {
         BigDecimal price = new BigDecimal("8.99");
 
-        RegularBurger regularBurger = new RegularBurger("Cheese burger", price);
+        RegularBurger regularBurger = new RegularBurger("Cheese burger", price, true, "Beef");
 
         System.out.println("Regular burger: " + regularBurger);
 
@@ -37,9 +37,9 @@ public class BurgerTest {
     @Test
     @DisplayName("Crea una burger spicy")
     public void spicyBurger() {
-        BigDecimal price = new BigDecimal("9.99");
+        BigDecimal price = new BigDecimal("19.99");
 
-        SpicyBurger spicyBurger = new SpicyBurger("Volcano", price, "Super high");
+        SpicyBurger spicyBurger = new SpicyBurger("Tex Mex", price, "Ultra high");
 
         System.out.println("Spicy burger: " + spicyBurger);
 
