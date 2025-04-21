@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "burger")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // indicando estrategia de herencia para una tabla por clase
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Burger {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "burger_gen")
+    @TableGenerator(name = "burger_gen", table = "id_generator")
     @Column(name = "burger_id")
     private int id;
 
@@ -55,6 +55,6 @@ public abstract class Burger {
         return "Burger{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price+ ", " ;
+                ", price=" + price + ", ";
     }
 }

@@ -1,13 +1,12 @@
 package com.ironhack.__ABR.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@DiscriminatorValue("SPICY")
+@Table(name = "spicy_burger") // indicamos la tabla de la base de datos
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class SpicyBurger extends Burger {
     @Column(name = "spicy_level")
     private String spicyLevel;
